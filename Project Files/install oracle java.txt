@@ -1,0 +1,27 @@
+1. Uncompress ----            tar -xvf jdk-8-linux-x64.tar.gz (64bit)
+
+2. Now move the JDK 8 directory to /usr/lib
+
+	sudo mkdir -p /usr/lib/jvm
+	sudo mv ./jdk1.8.0_05 /usr/lib/jvm/
+
+3. Now run
+
+	sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_05/bin/java" 1
+	sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_05/bin/javac" 1
+	sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.8.0_05/bin/javaws" 1
+
+This will assign Oracle JDK a priority of 1, which means that installing other JDKs will replace it as the default. Be sure to use a higher priority if you want Oracle JDK to remain the default.
+
+4. Correct the file ownership and the permissions of the executables:
+
+sudo chmod a+x /usr/bin/java 
+sudo chmod a+x /usr/bin/javac 
+sudo chmod a+x /usr/bin/javaws
+#sudo chown -R root:root /usr/lib/jvm/jdk1.8.0_05  - not required
+
+5. Run these and choose which jdk to use ( you will see a list if more than 1 jdk is installed)
+
+	sudo update-alternatives --config java
+	sudo update-alternatives --config javac
+	sudo update-alternatives --config javaws

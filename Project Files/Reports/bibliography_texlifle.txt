@@ -1,0 +1,85 @@
+@book{basar1995dynamic,
+  title={Dynamic noncooperative game theory},
+  author={Basar, Tamer and Olsder, Geert Jan and Clsder, GJ and Basar, T and Baser, T and Olsder, Geert Jan},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+} 
+
+@book{martin2009flow,
+  title={Flow-based Brute-force Attack Detection},
+  author={Martin Drasar and Jan Vykopal},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+} 
+
+@book{jerome2009botcloud,
+  title={BotCloud: Detecting Botnets Using MapReduce},
+  author={Jerome Francois, Shaonan Wang, Walter Bronzi, Radu State, Thomas Engel},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+} 
+
+@book{yeonhee2009detecting,
+  title={Detecting DDoS Attacks with Hadoop},
+  author={Yeonhee Lee and Youngseok Lee},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+} 
+
+@book{christos2009ddos,
+  title={DDoS Attacks and Defence Mechanisms: A Classification},
+  author={Christos Douligeris and Aikaterini Mitrokotsa},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+
+@book{jelena2009taxonomy,
+  title={A Taxonomy of DDoS Attacks and DDoS Defense Mechanisms},
+  author={Jelena Mirkovic, Janice Martin and Peter Reiher},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+@book{qijun2009denial,
+  title={Denial of Service Attacks},
+  author={Qijun Gu and Peng Liu},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+@book{silvia2009network,
+  title={Network Security and DoS Attacks},
+  author={Sílvia Farraposo,Laurent Gallon,Philippe Owezarski},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+
+@book{john2009implementing,
+  title={Implementing Pushback: Router-Based Defense Against DDoS Attacks},
+  author={John Ioannidis and Steven M. Bellovin},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+@book{,
+  title={},
+  author={},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+@book{,
+  title={},
+  author={},
+  volume={200},
+  year={1995},
+  publisher={SIAM}
+}
+
+

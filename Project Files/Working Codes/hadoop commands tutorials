@@ -1,0 +1,7 @@
+sudo chown -R hduser:hadoop /path-to-folder
+
+hdfs dfs -mkdir -p /usr/local/hadoop/input
+
+hadoop dfs -copyFromLocal /home/yogi/Desktop/sample.txt /usr/local/hadoop/input
+
+yarn jar /home/yogi/Desktop/wordcount.jar /home/yogi/Desktop/sample.txt /path-to-output-folder

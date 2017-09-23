@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/kishorer747/Downloads/Docs - Lab/A I  Project/jpcap-0.01.16-win32/jpcap-0.01.16-win32/jars/dev-classes_net.ultrametrics-0.03.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kishorer747/Downloads/Docs - Lab/A I  Project/jpcap-0.01.16-win32/jpcap-0.01.16-win32/jars/fooware_CommandLine-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kishorer747/Downloads/Docs - Lab/A I  Project/jpcap-0.01.16-win32/jpcap-0.01.16-win32/jars/javadoc_net.sourceforge.jpcap-0.01.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kishorer747/Downloads/Docs - Lab/A I  Project/jpcap-0.01.16-win32/jpcap-0.01.16-win32/jars/net.sourceforge.jpcap-0.01.16.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,18 @@
+yarn jar /home/yogi/Desktop/wordcount.jar /home/yogi/Desktop/sample.txt output
+
+hdfs dfs -mkdir -p /usr/local/hadoop/input
+
+hadoop dfs -copyFromLocal /home/yogi/Desktop/sample.txt /usr/local/hadoop/input
+
+/usr/local/hadoop/share/hadoop/mapreduce$ hadoop jar hadoop-mapreduce-examples-2.4.1.jar wordcount /usr/local/hadoop/input /usr/local/hadoop/output
+
+/usr/local/hadoop/share/hadoop/mapreduce$ hadoop dfs -cat /usr/local/hadoop/output/part-r-00000
+
+bin/hadoop fs -rmr jar_files/wordcount/output  to remove the output folder from hadoop
+
+if repeated with INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032   -->start-yarn.sh 
+
+
+
+
+

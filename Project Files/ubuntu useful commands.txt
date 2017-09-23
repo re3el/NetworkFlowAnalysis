@@ -1,0 +1,120 @@
+hadoop fs -copyFromLocal /home/kishorer747/Desktop/texts/* /usr/local/h_tmp
+
+/usr/local/hadoop/share/hadoop/mapreduce
+
+
+
+jaanam dek lo mit gayi dooriya.
+dard-e-disco
+
+
+sudo update-alternatives --install /usr/bin/jps jps /usr/lib/jvm/jdk1.8.0_05/bin/jps 1
+
+TO use jps   -       ps -aux | grep java | awk '{print $12}'
+
+
+localhost: Java HotSpot(TM) 64-Bit Server VM warning: You have loaded library /usr/local/hadoop/lib/native/libhadoop.so.1.0.0 which might have disabled stack guard. The VM will try to fix the stack guard now.
+localhost: It's highly recommended that you fix the library with 'execstack -c <libfile>', or link it with '-z noexecstack'.
+
+
+--------------To change Lockscreen Wallpapers---------
+
+sudo -i
+xhost +SI:localuser:lightdm
+su lightdm -s /bin/bash
+gsettings set com.canonical.unity-greeter draw-user-backgrounds 'true'
+gsettings set com.canonical.unity-greeter background 'path-to-image'
+exit
+
+path-to-image is actually the path where the image you want as log in screen wallpaper is stored e.g. : /usr/share/backgrounds/x.jpg
+
+----------------------------------------------------------------------------------------------------------------
+
+Mounting a partition in read-only mode
+
+sudo mount -o ro /dev/sda2 /media/Delta
+
+------------------------------------------------------------------------------------------------------------------
+
+sudo -s chmod -R 755 /etc/kishorer747/Downloads/new
+
+this will make the directory writable and executable for all users on the system.
+
+
+sudo chown -R hduser:hadoop path-to-the-folder  ( sudo chown -R username:user_group path-to-folder)
+
+------------------------------------------------------------------------------------------------------------------
+
+change default terminal emulator
+
+sudo update-alternatives --config x-terminal-emulator
+
+------------------------------------------------------------------------------------------------------------------
+
+
+sudo apt-get install samba
+sudo /etc/init.d/samba restart
+
+--------------------------------------------------------------------------------------------------------------------
+
+TO force a short password 
+
+sudo gedit /etc/pam.d/common-password
+
+change the line into:
+password    [success=1 default=ignore]  pam_unix.so minlen=1 sha512
+
+--------------------------------------------------------------------------------------------------------------------
+
+To force ssh connection with a host if keys autheticity problem.
+
+ssh-keygen -f "/home/hduser/.ssh/known_hosts" -R re3el
+
+--------------------------------------------------------------------------------------------------------------------
+
+ You need to add execution rights to the bundle for version for my particular version of Vmware Workstation 8 it is following:
+
+chmod +x VMware-Workstation-Full-8.0.1-528992.x86_64.bundle
+3) Then you need to run the installer and follow the installation steps:
+
+sudo ./VMware-Workstation-Full-8.0.1-528992.x86_64.bundle
+4) run following:
+
+sudo apt-get install build-essential
+5) finish the VMware installation:
+
+sudo vmware-modconfig --console --install-all
+6) profit! :)
+
+Note:
+
+if step 5 fails with “Failed to setup build environment.” you need to install correct linux headers:
+
+apt-cache search linux-headers-$(uname -r)
+and
+
+apt-get install linux-headers-$(uname -r)
+then return to step 5 and try again – it should be alright ;)
+
+--------------------------------------------------------------------------------------------------------------------
+
+enable hibernation
+
+
+/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+sudo gedit /etc/systemd/logind.conf
+HandleLidSwitch=ignore
+
+/etc/UPower/UPower.conf
+IgnoreLid=true
+
+There are three infallible ways of pleasing an author, and the three form a   \
+| rising scale of compliment: 1, to tell him you have read one of his books; 2, |
+| to tell him you have read all of his books; 3, to ask him to let you read the |
+| manuscript of his forthcoming book.  No. 1 admits you to his respect; No. 2   |
+| admits you to his admiration; No. 3 carries you clear into his heart.         |
+\                 -- Mark Twain, "Pudd'nhead Wilson's Calendar"   

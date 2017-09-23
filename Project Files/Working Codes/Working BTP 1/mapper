@@ -1,0 +1,180 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class mapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+
+	private final static IntWritable one = new IntWritable(1);
+	 
+     private final static IntWritable two = new IntWritable(2);
+     private final static IntWritable three = new IntWritable(3);
+     private final static IntWritable four = new IntWritable(4);
+     private final static IntWritable five = new IntWritable(5);
+     private final static IntWritable six = new IntWritable(6);
+     private final static IntWritable seven = new IntWritable(7);
+     private final static IntWritable eight = new IntWritable(8);
+     private final static IntWritable nine= new IntWritable(9);
+     
+      private Text srcIP,srcIPN;
+      private Text dstIP,dstIPN;
+      private Text srcPort,srcPortN;
+      private Text dstPort,dstPortN;
+      private Text counter1,counter2,counter3,counter4,counter5 ;
+      //private Text total_records;
+      
+      int ddos_line = 0;	
+	
+	@Override
+	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+		
+		String line1 = value.toString();
+        ddos_line++;
+        int pos1=0;
+        int lineno=0;
+
+        int[] count = {100000, 100000, 100000, 100000, 100000};
+        int[] lineIndex = {0, 0, 0, 0, 0};
+
+        for(int i=0;i<9;i++)
+        {
+        	pos1 = line1.indexOf("|",pos1+1);
+        }
+           
+        srcIP =  new Text( line1.substring(0,line1.indexOf("|")) );
+        String srcIPP = srcIP.toString();
+        dstIP = new Text(line1.substring( srcIPP.length()+1,line1.indexOf("|",srcIPP.length()+1)) ) ;
+       
+        srcPort = new Text( line1.substring(pos1+1,line1.indexOf("|",pos1+1)) );
+        pos1 = line1.indexOf("|",pos1+1);
+        dstPort = new Text( line1.substring(pos1+1,line1.indexOf("|",pos1+1)) );
+		
+       BufferedReader br = new BufferedReader(new FileReader("normal_small.txt"));            
+		
+//        FileSystem fs = FileSystem.get(new Configuration());			
+//        FileStatus[] status = fs.listStatus(new Path("hdfs://master:54310/usr/local/hadoop/input/normal_small"));            
+//        BufferedReader br=new BufferedReader(new InputStreamReader(fs.open(status[0].getPath())));           
+        
+        String line=br.readLine();
+        
+		lineno++;
+		boolean bool = true;
+		while (bool) {
+				
+				for(int i=0; i<5;i++)
+				{
+					if(bool==false)
+						break;
+					int pos=0;
+   				int temp;
+   				for(int j=0;j<9;j++)
+	            {
+	            	pos = line.indexOf("|",pos+1);
+	            }
+
+
+	   			srcIPN =  new Text( line.substring(0,line.indexOf("|")) );
+	            String srcIPP2 = srcIPN.toString();
+	            dstIPN = new Text(line.substring( srcIPP2.length()+1,line.indexOf("|",srcIPP2.length()+1)) ) ;
+	            
+	            srcPortN = new Text( line.substring(pos+1,line.indexOf("|",pos+1)) );
+	            pos = line.indexOf("|",pos+1);
+	            dstPortN = new Text( line.substring(pos+1,line.indexOf("|",pos+1)) );
+
+
+   				if(srcIP.equals(srcIPN) && dstIP.equals(dstIPN))
+				{
+					int tmp, tmp2;
+					
+					tmp = Integer.parseInt(srcPort.toString()) - Integer.parseInt(srcPortN.toString());
+					if(tmp<0)
+						tmp*=-1;
+					
+					tmp2 = Integer.parseInt(dstPort.toString()) - Integer.parseInt(dstPortN.toString());
+					if(tmp2<0)						
+						tmp2*=-1;
+
+					temp=tmp+tmp2;
+					
+					
+					if(count[4] > temp)
+					{
+						count[4] = temp;
+						lineIndex[4]=lineno;
+					} 
+						
+					
+					for(int k=0;k<5;k++)
+					{
+						for(int j=0;j<4;j++)
+						{	
+							if(count[j] > count[j+1]) 
+							{
+								int temp2 = count[j+1];
+								count[j+1] = count[j];
+								count[j] = temp2;
+
+								int temp3 = lineIndex[j+1];
+								lineIndex[j+1] = lineIndex[j];
+								lineIndex[j] = temp3;
+							}
+						}
+					}
+					
+
+
+				}
+
+				if ((line = br.readLine()) != null )
+				{
+					lineno++;
+					continue;
+				} 
+				
+				else 
+					bool = false;
+				}
+				
+
+		}
+		br.close();         
+		
+		
+		
+		counter1 = new Text(ddos_line + " : " +lineIndex[0]+ " : " + count[0]);
+		counter2 = new Text(ddos_line + " : " +lineIndex[1]+ " : " + count[1]);
+		counter3 = new Text(ddos_line + " : " +lineIndex[2]+ " : " + count[2]);
+		counter4 = new Text(ddos_line + " : " +lineIndex[3]+ " : " + count[3]);
+		counter5 = new Text(ddos_line + " : " +lineIndex[4]+ " : " + count[4]);
+		
+		/*
+		System.out.println(counter1);
+		System.out.println(counter2);
+		System.out.println(counter3);
+		System.out.println(counter4);
+		System.out.println(counter5);
+		*/
+		//context.write(srcIP, one);
+		//context.write(dstIP, two);
+		//context.write(srcPort, three);
+		//context.write(dstPort, four);
+		context.write(counter1, five);
+		context.write(counter2, six);
+		context.write(counter3, seven);
+		context.write(counter4, eight);
+		context.write(counter5, nine);
+        
+   }
+	public void run(Context context) throws IOException, InterruptedException {
+		setup(context);
+		while (context.nextKeyValue()) {
+			map(context.getCurrentKey(), context.getCurrentValue(), context);
+		}
+		cleanup(context);
+	}
+
+}

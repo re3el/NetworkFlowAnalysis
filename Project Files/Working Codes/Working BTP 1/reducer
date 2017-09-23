@@ -1,0 +1,52 @@
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class reducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+	
+	int total = 0;
+	Set<String> distinct_src_IP = new HashSet<String>();
+    Set<String> distinct_dst_IP = new HashSet<String>();
+    Set<String> distinct_src_Port = new HashSet<String>();
+    Set<String> distinct_dst_Port = new HashSet<String>();
+    Set<String> distinct_cnt_Set = new HashSet<String>();
+	
+	@Override
+	public void reduce(final Text key, final Iterable<IntWritable> values,final Context context) throws IOException, InterruptedException 
+	{
+
+	  	int col=0;
+        
+		Iterator<IntWritable> iterator = values.iterator();
+
+		while (iterator.hasNext()) 
+		{
+			total++;
+			
+            col = iterator.next().get();
+              switch(col)
+              {
+              	case 1 :	distinct_src_IP.add(key.toString());
+              			break;
+              	case 2 :	distinct_dst_IP.add(key.toString());
+              			break;
+              	case 3 :	distinct_src_Port.add(key.toString());
+    					break;
+              	case 4 :	distinct_dst_Port.add(key.toString());
+    					break;
+              	default:
+              			int pos1 = key.toString().indexOf(":");
+              			int pos2 = key.toString().indexOf(":",pos1+1);
+              			int pos3 = key.toString().indexOf(" ",pos2+2);
+              			String val1 = key.toString().substring(pos2+2); 
+              			if (!val1.equals("100000"))context.write(key,new IntWritable());
+              			System.out.println(val1);
+              }
+		}
+	}		
+}

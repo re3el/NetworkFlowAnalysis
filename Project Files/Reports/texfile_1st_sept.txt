@@ -1,0 +1,260 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+
+\usepackage[colorinlistoftodos]{todonotes}
+\marginparwidth = 10pt
+\textwidth = 450pt
+\hoffset = 0pt
+\oddsidemargin = 0pt
+%\usepackage{showframe}
+
+\title{Network Flow Analysis using Big Data}
+
+\author{Yogesh Dorbala, Kishore Rajendra}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In our project, we plan to use Hadoop to analyze very large data-sets of Network-
+Flow data for different process.There are many new languages and databases to support Big data framework Hadoop. We would exlpore to find the best suitable tools and languages for our
+project. We will use different methods described in other papers to accurately analyze
+the network flow. Using Big data analysis, we have the power and capability to
+analyze very large sets of data in very less time. 
+
+\end{abstract}
+
+\section{Introduction}
+
+The rate of data creation has increased so much that 90 of the data in the world
+today has been created in the last two years alone. This acceleration in the
+production of information has created a need for new technologies to analyze
+massive data sets. The term Big Data refers to large-scale information management and analysis
+technologies that exceed the capability of traditional data processing
+technologies.
+
+Big Data Analytics is a paradigm where large data sets are split into small ones
+and given to worker nodes to compute and all the results are appended to give
+the result.This has a huge advantage as data with variety, velocity and volume can be
+managed easily. The need to analyze and leverage trend data collected by
+businesses is one of the main drivers for Big Data analysis tools.
+
+The technological advances in storage, processing, and analysis of Big Data
+include (a) the rapidly decreasing cost of storage and CPU power in recent years;
+(b) the flexibility and cost-effectiveness of datacenters and cloud computing for
+elastic computation and storage; and (c) the development of new frameworks
+such as Hadoop, which allow users to take advantage of these distributed
+computing systems storing large quantities of data through flexible parallel
+processing
+
+Storage cost has dramatically decreased in the last few years. Therefore, while
+traditional data warehouse operations retained data for a specific time interval,
+Big Data applications retain data indefinitely to understand long historical trends.
+Big Data tools such as the Hadoop ecosystem and NoSQL databases provide the
+technology to increase the processing speed of complex queries and analytics.
+Big Data technologies can be divided into two groups: batch processing, which
+are analytics on data at rest, and stream processing, which are analytics on data
+in motion.
+
+
+\textbf{Organization} The rest of the paper is organized as follows: Hadoop description is given in section II. In the section III, we provide literature survey on the usage of MapReduce with Hadoop. In section IV, we describe the exisiting security measures against DDoS.Finally, Conclusion and future work are included in section VI.
+
+\section{Hadoop}
+
+The Apache Hadoop is a framework that allows for the storing large data sets which are distributed across clusters of computers using simple programming models and written in Java to run on a single computer to large clusters of commodity hardware computers. 
+
+It is derived from papers published by Google and incorporated the features of the Google File System (GFS) and MapReduce paradigm which are named as Hadoop Distributed File System and Hadoop MapReduce.
+
+\subsection{Key Characteristics}
+\begin{enumerate}
+\item \textbf{Scalable}– New nodes can be added as needed, and added without needing to change data formats, how data is loaded, how jobs are written, or the applications on top.
+
+\item \textbf{Economical}– Hadoop brings massively parallel computing to commodity servers. The result is a sizeable decrease in the cost per terabyte of storage, which in turn makes it affordable to model all your data.
+
+\item \textbf{Flexible}– Hadoop is schema-less, and can absorb any type of data, structured or not, from any number of sources. Data from multiple sources can be joined and aggregated in arbitrary ways enabling deeper analyses than any one system can provide.
+
+\item \textbf{Reliable}– When you lose a node, the system redirects work to another location of the data and continues processing without missing a beat
+
+\end{enumerate}
+\subsection{Motivation behind using Hadoop}
+
+
+\section{Literature Survey}
+
+Big Data analytics can be leveraged to improve information security and
+situational awareness. For example, Big Data analytics can be employed to
+analyze financial transactions, log files, and network traffic to identify anomalies
+and suspicious activities, and to correlate multiple sources of information into a
+coherent view.
+
+The report explores how to use Big data Analytics to solve current problems with
+having to analyze Terabytes of data through the help of research paper
+publications.
+
+
+
+\subsection{Detecting Botnets}
+
+Botnets are a major threat of the current Internet. Understanding the novel
+generation of botnets relying on peer to-peer networks is crucial for mitigating
+this threat.
+Nowadays, botnet traffic is mixed with a huge volume of benign traffic due to
+almost ubiquitous high speed networks. Such networks can be monitored using IP
+flow records but their forensic analysis form the major computational bottleneck.
+
+The paper \textit{“BotCloud: Detecting Botnets Using MapReduce”} describes a scalable method for detecting P2P botnets regarding the relationships between hosts. The evaluation shows a good detection accuracy and a good efficiency based on a Hadoop cluster.
+
+
+\subsection{Detecting DDoS Attacks}
+
+Recent distributed denial-of-service (DDoS) attacks have demonstrated horrible
+destructive power by paralyzing web servers within short time. As the volume of
+Internet traffic rapidly grows up, the current DDoS detection technologies have
+met a new challenge that should efficiently deal with a huge amount of traffic
+within the affordable response time.
+This paper devised a DDoS anomaly detection method on Hadoop that
+implements a MapReduce-based detection algorithm against the HTTP GET
+flooding attack.
+
+In the paper \textit{“Detecting DDoS Attacks with Hadoop”}, the focus was on a scalability issue of the anomaly detection. The paper also introduced a Hadoop-based DDoS detection scheme to detect multiple attacks from a huge volume of traffic.
+This method leverages Hadoop to solve the scalability issue by parallel data
+processing.
+
+\subsection{Brute-force Attack Detection}
+
+The paper \textit{“Flow-based Brute-force Attack Detection”} presents several methods for the detection of brute-force attacks
+based on the analysis of network flows and discusses their strengths and
+shortcomings. It also demonstrates the fragility of some methods by introducing detection
+evasion techniques.
+
+This chapter gave an overview about current research in the field of flow-based
+attack and anomaly detection. It also summarized state of the art concepts for attack detection, especially brute-force ones, and concluded the chapter by discussing evasion strategies as well as the limitations inherent to the process of detecting attacks in network ows.
+
+\section{Distributed Denial of Service}
+
+DDoS is a type of DoS attack where multiple compromised systems which are usually infected with a Trojan are used to target a single system causing a Denial of Service (DoS) attack. Victims of a DDoS attack consist of both the end targeted system and all systems maliciously used and controlled by the hacker in the distributed attack.
+\newline
+\newline
+\textbf{Defence Measures against DDoS}
+\begin{enumerate}
+\item System security mechanisms increase the
+overall security of the system, guarding against
+illegitimate accesses to the machine, removing
+application bugs and updating protocol
+installations to prevent intrusions and misuse
+of the system.
+
+\item Protocol security mechanisms address the
+problem of bad protocol design. Many
+protocols contain operations that are cheap for
+the client but expensive for the server. Such
+protocols can be misused to exhaust the
+resources of a server by initiating large
+numbers of simultaneous transactions. 
+
+\item Ingress Filtering,
+proposed by Ferguson and Senie, is a restrictive
+mechanism to drop traffic with IP addresses that do not
+match a domain prefix connected to the ingress router.
+Egress filtering is an outbound filter, which ensures that
+only assigned or allocated IP address space leaves the
+network. 
+
+\item Misuse detection identifies well-defined patterns of
+known exploits and then looks out for occurrences of such
+patterns. Several popular network monitors perform
+signature-based detection, such as CISCO'S NetRanger,
+NID, Realsecure, Snort.
+
+\end{enumerate}
+
+
+
+
+
+\section{Approach}
+\subsection{Statistical Analysis}
+Using Hadoop’s MapReduce paradigm,the map function filters non-HTTP GET packets and generates key values of server IP address, masked timestamp, and client IP address. The reduce function summarizes the number of URL requests, page requests, and server response between a client and a server. Finally, the algorithm aggregates values per server. When total requests for a specific server exceeds the threshold, the records are marked as attackers.\newline\newline
+A Simple example:
+\newline
+We have a .pcap file generated from Wireshark.We will do offline-analysis in this example. After running our program for Packet Count, we get the following output sorted in ascending order or IP Address
+\newline
+\newline
+74.125.236.36 - 40\\*
+134.170.188.221 - 58\\*
+173.252.110.27 - 182\\*
+
+
+
+Here first column is Source IP Address and second column is the number of packets from that IP Address. Similarly we will collect other data like src and destination port number, total hops,payload length, flags, timestamp and other information.
+At the end we can calculate how many connections were made with the host and gather data like average payload length for that session. This is particularly helpful in detecting attacks as those sessions have slightly different properties which deplete the resources of the host.
+
+\subsection{Hop-count Method}
+
+Each packet has a TTL (Time to live) value.Whenever it passes through a router, TTL value is reduced by 1. THis is done so that packets whose destination is not reachable do not overload the network.
+When a packet is created, it has some TTL value depending on the Operating System.
+
+\includegraphics[width=50mm,scale=0.8]{ttl}\newline\newline
+In this method, we store a table with IP-hopcount entries. Source-IP Address and number of hops for that IP. We ping recently contacted IP Addresses regulary and record how many hops packets take.When a packet enters our network, we check its hopcount entry.
+%In other methods, it is suggested that if the current TTL value of packet matches possible TTL difference (Initial_TTL_value - hopcount_in_table = current_TTL_value), then packet if legal. Or else, it is not.
+But one problem with this approach is, packets may not take the same route always as some devices or networks might go down, due to which route will change.
+
+We propose to check for first 1 or 2 IP Addresses from source. Because the source's ISP remains same for some period,lets say it is IP1.
+we can conclude if a packet is valid by checking the first hop-IP. If it is same as IP1, \newline
+
+Example: \newline
+Lets say usual path from src to host is:\newline
+
+src - IP1 - IP2 - IP3 ---- IP10 - host ( no. of hops == 12 )\newline
+
+Due to some problems, router with IP2 is down, the new path is:\newline
+src - IP1 - IPnew1 - IPnew2 - IP3 ---- IP10 - host ( no. of hops != 13 )\newline
+
+But it is valid packet because IP2 is down, and thats why TTL value will be different now.\newline
+
+\section{Conclusion}
+
+Report on the Network flow analysis using BigData taking into consideration all
+the factors governing the flow.
+After collecting real-data for a network flow, we will analyse and detect any
+anomolies or attacks. If required, we may have to generate attacks by ourselves/
+to verify our system.
+The BTP end deliverables are methods to prevent or detect attacks using Big-Data framework
+Hadoop.
+
+A book on game theory is \cite{martin2009flow}.
+
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+\iffalse
+\section{References}
+\textit{ “BotCloud: Detecting Botnets Using MapReduce”}, by Jerome
+Francois, Shaonan Wang, Walter Bronzi, Radu State, Thomas Engel.
+\textit{ “Detecting DDoS Attacks with Hadoop”}, by Yeonhee Lee,
+Youngseok Lee.
+ \textit{“Flow-based Brute-force Attack Detection”}, by Martin Drasar
+and Jan Vykopal.
+
+\textit{"DDoS Attacks and Defence Mechanisms: A Classification"}
+Christos Douligeris and Aikaterini Mitrokotsa
+
+\textit{"A Taxonomy of DDoS Attacks and DDoS Defense Mechanisms"}
+Jelena Mirkovic, Janice Martin and Peter Reiher
+
+\textit{"Denial of Service Attacks"} by Qijun Gu,Peng Liu.
+\textit{"Network Security and DoS Attacks" }by Sílvia Farraposo,Laurent Gallon,Philippe Owezarski.
+
+\textit{"Implementing Pushback: Router-Based Defense Against DDoS Attacks"} by
+John Ioannidis,Steven M. Bellovin.
+\fi
+
+\end{document}
